@@ -12,6 +12,7 @@ import models.R;
 import models.exceptions.BizException;
 import play.data.validation.Required;
 import play.mvc.Before;
+import play.mvc.Util;
 
 /**
  * Created by pfctgeorge on 17/1/22.
@@ -22,10 +23,10 @@ public class Wechat extends BasicController {
         if (StringUtils.isNotEmpty(echostr)) {
             renderText(echostr);
         }
-        renderJSON(wechatService.handleEvent(request.params.get("body")));
+        renderText(wechatService.handleEvent(request.params.get("body")));
     }
 
-    @Before
+    @Util
     public static void checkEventFromWechat(@Required String timestamp, @Required String nonce, @Required String signature) {
         if (timestamp == null || nonce == null || signature == null) {
             badRequest();

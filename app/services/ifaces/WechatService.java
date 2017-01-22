@@ -5,7 +5,7 @@ package services.ifaces;
  */
 public interface WechatService {
 
-    String handleEvent(String body) throws Exception;
+    Object handleEvent(String body) throws Exception;
 
     void pushWechatTextToUser(String openId, String content) throws Exception;
 }

@@ -49,6 +49,7 @@ public class R {
     }
 
     public static final String WECHAT_OPEN_TOKEN = Play.configuration.getProperty("wechat.open.token");
+    public static final String WECHAT_DEV_ACCOUNT = Play.configuration.getProperty("wechat.dev.account");
 
     public static enum ERROR {
         SIGN_ERROR(601);
