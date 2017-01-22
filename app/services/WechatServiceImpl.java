@@ -51,7 +51,7 @@ public class WechatServiceImpl extends BasicService implements WechatService {
                 return getWechatFormatXML(buildWechatTextResponse(openId, "Hello world!"));
             }
         }
-        return Collections.singletonMap("FromUserName", "123123");
+        return "";
     }
 
     private Map<String, Object> buildWechatTextResponse(String openId, String text) {
