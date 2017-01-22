@@ -9,6 +9,7 @@ import com.google.inject.Injector;
 import inject.DefaultModule;
 import play.Logger;
 import play.Play;
+import play.i18n.Messages;
 import redis.clients.jedis.ShardedJedis;
 
 /**
@@ -45,6 +46,25 @@ public class R {
         public static final String SEND_MESSAGE_URL = Play.configuration.getProperty("wechat.send.message.url");
         public static final String REQUEST_OPEN_ACCESS_TOKEN_URL = Play.configuration.getProperty("wechat.request.access.token.url");
 
+    }
+
+    public static final String WECHAT_OPEN_TOKEN = Play.configuration.getProperty("wechat.open.token");
+
+    public static enum ERROR {
+        SIGN_ERROR(601);
+        int code;
+
+        ERROR(int code) {
+            this.code = code;
+        }
+
+        public int getCode() {
+            return code;
+        }
+
+        public String getMessage() {
+            return Messages.get("error.info." + name());
+        }
     }
 
 
